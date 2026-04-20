@@ -1,0 +1,381 @@
+.care-tips-main {
+    margin-top: 80px;
+    font-family: 'Georgia', serif;
+}
+
+.care-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.care-hero {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f9f0ff 0%, #e6f7ff 100%);
+    text-align: center;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    color: #666;
+    margin: 0;
+}
+
+.quote-section {
+    padding: 60px 20px;
+    background: white;
+}
+
+.care-quote {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #fff5f5 0%, #f0f8ff 100%);
+    border-left: 4px solid #c71585;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.care-quote p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #333;
+    font-style: italic;
+    margin: 0;
+}
+
+.care-quote::before {
+    content: "“";
+    font-size: 4rem;
+    color: #c71585;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-family: Georgia, serif;
+}
+
+.care-quote::after {
+    content: "”";
+    font-size: 4rem;
+    color: #c71585;
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    font-family: Georgia, serif;
+}
+
+/* Tips Section */
+.tips-section {
+    padding: 80px 20px;
+    /* background: #f8f8f8; */
+}
+
+.tips-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: bold;
+}
+
+/* Tip Cards */
+.tip-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.tip-content {
+    display: flex;
+    align-items: center;
+    min-height: 300px;
+}
+
+.tip-content.reverse {
+    flex-direction: row-reverse;
+}
+
+.tip-text {
+    flex: 1;
+    padding: 40px;
+}
+
+.tip-text h3 {
+    font-size: 1.5rem;
+    color: #c71585;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tip-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: #c71585;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.tip-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.tip-warning {
+    background: #fff5f5;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid #ff6b6b;
+    font-style: italic;
+}
+
+.tip-image {
+    flex: 1;
+    height: 100%;
+}
+
+.care-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Small Tips Grid */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.small-tip-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.small-tip-card:hover {
+    transform: translateY(-5px);
+}
+
+.small-tip-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #c71585, #e6a4c6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.small-tip-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.small-tip-card h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.small-tip-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Rules Card */
+.rules-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 50px;
+}
+
+.rules-card h2 {
+    color: #c71585;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rules-list li {
+    padding: 15px 0 15px 40px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.rules-list li:before {
+    content: "✓";
+    color: #c71585;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 15px;
+}
+
+.rules-list li:last-child {
+    border-bottom: none;
+}
+
+/* Cheatsheet Section */
+.cheatsheet-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.cheatsheet-section h2 {
+    color: #c71585;
+    margin-bottom: 30px;
+}
+
+.cheatsheet-image {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cheatsheet-image .care-image {
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .care-container {
+        padding: 0 15px;
+    }
+    
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .care-tips-main {
+        margin-top: 70px;
+    }
+    
+    .care-hero {
+        padding: 60px 15px;
+    }
+    
+    .care-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .tips-section {
+        padding: 60px 15px;
+    }
+    
+    .tip-content {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .tip-content.reverse {
+        flex-direction: column;
+    }
+    
+    .tip-text {
+        padding: 30px;
+    }
+    
+    .care-image {
+        height: 250px;
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .small-tip-card {
+        padding: 25px;
+    }
+    
+    .rules-card {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .care-hero,
+    .tips-section {
+        padding: 40px 10px;
+    }
+    
+    .care-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .care-quote {
+        padding: 30px 20px;
+    }
+    
+    .care-quote p {
+        font-size: 1.1rem;
+    }
+    
+    .tips-section h2 {
+        font-size: 2rem;
+    }
+    
+    .tip-text {
+        padding: 20px;
+    }
+    
+    .tip-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .rules-card {
+        padding: 25px;
+    }
+    
+    .rules-list li {
+        font-size: 1rem;
+        padding: 12px 0 12px 30px;
+    }
+    
+    .cheatsheet-section {
+        padding: 25px;
+    }
+}

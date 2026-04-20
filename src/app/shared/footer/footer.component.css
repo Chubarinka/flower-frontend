@@ -1,0 +1,136 @@
+.footer {
+    padding: 40px 20px 20px;
+    margin-top: auto;
+    z-index: 1;
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: #eee;
+    margin-bottom: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.footer-logo .logo-icon {
+    width: 100px;
+    height: 120px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover .logo-icon {
+    transform: scale(1.05);
+}
+
+.footer-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    line-height: 1.4;
+}
+
+.footer-link:hover {
+    color: #c71585;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #c71585;
+}
+
+.social-link i {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.social-link .fa-vk {
+    color: #4c75a3;
+}
+
+.social-link .fa-telegram {
+    color: #0088cc;
+}
+
+.social-link:hover .fa-vk,
+.social-link:hover .fa-telegram {
+    color: inherit;
+}
+
+.payment-methods {
+    margin-top: 10px;
+}
+
+.payment-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.payment-icon {
+    width: 50px;
+    height: 35px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.payment-icon:hover {
+    transform: scale(1.05);
+}
+
+.f_p {
+    text-align: center;
+    color: #999;
+    font-size: 0.8rem;
+    margin: 40px 0 0 0;
+}

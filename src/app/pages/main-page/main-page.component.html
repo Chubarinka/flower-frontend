@@ -1,0 +1,83 @@
+<div class="hero">
+    <h1>Магазин цветов - Flower Paradize</h1>
+    <p class="hero-subtitle">цветы, которые делают вас счастливыми</p>
+</div>
+
+<div class="carousel-container" (mouseenter)="stopAutoPlay()" (mouseleave)="startAutoPlay()">
+    <div class="carousel">
+        <div class="carousel-slide" *ngFor="let slide of getSlidesArray(); let i = index" [class.active]="i === currentSlide">
+            <img [src]="'assets/m_baner' + (i + 1) + '.jpg'" [alt]="'Специальное предложение ' + (i + 1)" class="carousel-image">
+        </div>
+    </div>
+
+    <!-- Кнопки навигации -->
+    <button class="carousel-btn carousel-btn-prev" (click)="prevSlide()" aria-label="Предыдущее изображение">&#10094;</button>
+    <button class="carousel-btn carousel-btn-next" (click)="nextSlide()" aria-label="Следующее изображение">&#10095;</button>
+
+    <!-- Индикаторы -->
+    <div class="carousel-indicators">
+        <span class="indicator" *ngFor="let slide of getSlidesArray(); let i = index" 
+              [class.active]="i === currentSlide" 
+              (click)="goToSlide(i)"></span>
+    </div>
+</div>
+
+<div class="about">
+    <p>Мы стараемся для наших горячо любимых клиентов, создавая неповторимые цветочные композиции</p>
+</div>
+
+<div class="features">
+    <p class="p_head"> Мы предлагаем </p>
+    <div class="features-container">
+        <div class="feature-column">
+            <div class="feature-block">
+                <p class="f_head">Эксклюзивная подача</p>
+                <p class="f_text">Роскошный подарок в дизайнерской коробке, подписанный именем получателя -
+                    подарок, достойный королевы.</p>
+            </div>
+            <div class="feature-block">
+                <p class="f_head">Осязаемая роскошь</p>
+                <p class="f_text">Мы находимся вне конкуренции обычных букетов, наша подача всегда будет
+                    выделяться на фоне остальных подарков.</p>
+            </div>
+        </div>
+
+        <div class="feature-column center-column">
+            <div class="feature-image">
+                <img src="http://localhost:4200/assets/m_roze.jpg" alt="Розы" class="feature-img">
+                <!-- <img src="/assets/m_roze.jpg" alt="Розы" class="feature-img"> -->
+            </div>
+        </div>
+
+        <div class="feature-column">
+            <div class="feature-block">
+                <p class="f_head">Неповторимые эмоции</p>
+                <p class="f_text">Неожиданно удивите и обрадуйте дорогого человека, уделив ему внимание и
+                    подарив красоту прекрасных свежих роз.</p>
+            </div>
+            <div class="feature-block">
+                <p class="f_head">Длительная неувядаемость</p>
+                <p class="f_text">Наши розы живут дольше, поскольку каждый бутон мы укладываем в отдельную
+                    капсулу с водой.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="catalog-preview">
+    <h2 class="catlog-p">Категории</h2>
+    <div class="catalog-images">
+        <div class="catalog-item">
+            <img src="./assets/m_catalog4.jpg" alt="Букет 1" class="catalog-image">
+            <p><a routerLink="/catalog" class="catalog-link">Букетоны</a></p>
+        </div>
+        <div class="catalog-item">
+            <img src="assets/m_catolog2.jpg" alt="Букет 2" class="catalog-image">
+            <p><a routerLink="/catalog" class="catalog-link">Цветы в коробках</a></p>
+        </div>
+        <div class="catalog-item">
+            <img src="assets/m_catolog3.jpg" alt="Букет 3" class="catalog-image">
+            <p><a routerLink="/catalog" class="catalog-link">Букеты</a></p>
+        </div>
+    </div>
+</div>

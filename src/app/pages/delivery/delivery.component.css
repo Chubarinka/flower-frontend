@@ -1,0 +1,509 @@
+/* Delivery Styles */
+.delivery-main {
+    margin-top: 80px;
+}
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Первый блок с доставкой */
+.delivery-hero {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f9f0ff 0%, #e6f7ff 100%);
+}
+
+
+/* Контейнер для первого блока (две колонки) */
+.delivery-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+.delivery-text-column {
+    flex: 1;
+}
+
+.delivery-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.delivery-subtitle {
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+}
+
+.delivery-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+}
+
+.delivery-image-column {
+    flex: 1;
+}
+
+.image-container {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.delivery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.image-container:hover .delivery-image {
+    transform: scale(1.05);
+}
+
+/* Контейнер для второго блока (информационные блоки в ряд) */
+.delivery-info-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили для блоков доставки */
+.delivery-block {
+    flex: 1;
+    margin-bottom: 0;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.delivery-block h3 {
+    color: #c71585;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.delivery-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.delivery-list li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.delivery-list li:last-child {
+    margin-bottom: 0;
+}
+
+.delivery-block p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.delivery-block p:last-child {
+    margin-bottom: 0;
+}
+
+.delivery-note {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 5px;
+    margin-top: 10px !important;
+}
+
+/* Второй блок с заказом */
+.order-section {
+    padding: 80px 20px;
+    /* background-color: #f8f8f8; */
+}
+
+.order-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.order-title {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Центрирующий контейнер */
+.order-center-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Убираем старые стили для колонок */
+.order-columns {
+    display: block;
+}
+
+.order-image-column {
+    display: none;
+}
+
+.order-content-column {
+    width: 100%;
+}
+
+/* Таблица шагов */
+.order-method {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.method-title {
+    font-size: 1.5rem;
+    color: #c71585;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.steps-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.steps-table thead {
+    background: linear-gradient(135deg, #c71585, #e6a4c6);
+}
+
+.steps-table th {
+    padding: 15px 20px;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+}
+
+.table-row {
+    transition: all 0.3s ease;
+}
+
+.table-row:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.table-row:nth-child(odd) {
+    background: white;
+}
+
+.table-row:hover {
+    background: #f0f0f0;
+    transform: translateX(5px);
+}
+
+.step-number {
+    font-weight: 700;
+    color: #c71585;
+    font-size: 1.1rem;
+    padding: 20px;
+    width: 60px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.steps-table thead .step-number {
+    color: white;
+}
+
+.step-action {
+    color: #333;
+    line-height: 1.5;
+    padding: 20px;
+    vertical-align: middle;
+}
+
+.steps-table thead .step-action {
+    color: white;
+}
+
+/* Альтернативные способы */
+.alternative-methods {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.methods-title {
+    font-size: 1.5rem;
+    color: #c71585;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.method-card {
+    text-align: center;
+    padding: 25px 20px;
+    background: #f8f8f8;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.method-card:hover {
+    transform: translateY(-5px);
+    border-color: #c71585;
+    box-shadow: 0 10px 25px rgba(199, 21, 133, 0.15);
+}
+
+.method-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    background: linear-gradient(135deg, #c71585, #e6a4c6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.method-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Обновляем стили для заголовков в карточках методов */
+.method-card-title {
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.method-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.method-link,
+.phone-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #666;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.method-link:hover,
+.phone-link:hover {
+    background: white;
+    color: #c71585;
+    transform: translateX(5px);
+}
+
+.method-link i,
+.phone-link i {
+    font-size: 1.1rem;
+    width: 20px;
+}
+
+.method-link .fa-telegram { color: #0088cc; }
+.method-link .fa-whatsapp { color: #25D366; }
+.method-link .fa-viber { color: #7360F2; }
+.method-link .fa-vk { color: #4C75A3; }
+
+.phone-link {
+    color: #c71585;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Responsive Design для таблицы */
+@media (max-width: 768px) {
+    .steps-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .step-number,
+    .step-action {
+        padding: 15px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .step-number {
+        width: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .step-number,
+    .step-action {
+        padding: 12px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .step-number {
+        width: 40px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .delivery-container {
+        gap: 40px;
+    }
+    
+    .delivery-info-container {
+        gap: 20px;
+    }
+    
+    .methods-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .delivery-main {
+        margin-top: 70px;
+    }
+    
+    .delivery-hero,
+    .order-section {
+        padding: 60px 15px;
+    }
+    
+    .delivery-container {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+    
+    .delivery-info-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .delivery-title {
+        font-size: 2.5rem;
+    }
+    
+    .order-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .order-center-wrapper {
+        gap: 40px;
+        padding: 0 10px;
+    }
+    
+    .order-method,
+    .alternative-methods {
+        padding: 25px;
+    }
+    
+    .delivery-block {
+        padding: 20px;
+    }
+    
+    .delivery-block h3 {
+        font-size: 1.2rem;
+    }
+    
+    .methods-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .delivery-hero,
+    .order-section {
+        padding: 40px 10px;
+    }
+    
+    .delivery-container,
+    .delivery-info-container {
+        padding: 0 15px;
+    }
+    
+    .delivery-title {
+        font-size: 2rem;
+    }
+    
+    .order-title {
+        font-size: 1.8rem;
+    }
+    
+    .delivery-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .order-center-wrapper {
+        gap: 30px;
+    }
+    
+    .order-method,
+    .alternative-methods {
+        padding: 20px;
+    }
+    
+    .delivery-block {
+        padding: 15px;
+    }
+    
+    .table-row {
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .step-number {
+        font-size: 1rem;
+    }
+    
+    .step-action {
+        font-size: 0.9rem;
+    }
+    
+    .method-card {
+        padding: 20px 15px;
+    }
+    
+    .method-card-title {
+        font-size: 1rem;
+    }
+}

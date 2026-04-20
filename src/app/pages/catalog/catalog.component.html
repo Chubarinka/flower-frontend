@@ -1,0 +1,320 @@
+<main class="catalog-main">
+    <h1>Каталог цветов и букетов</h1>
+
+    <div class="catalog-container">
+        <!-- Левая колонка - фильтры -->
+        <aside class="filters-column">
+            <span class="filters-title">Фильтры</span>
+
+            <div class="filter-accordion">
+                <!-- Фильтр по стоимости -->
+                <!-- Фильтр по стоимости -->
+                <details class="filter-group">
+                    <summary class="filter-header">
+                        <span>Стоимость</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="radio" name="priceRange" value="0-2000"
+                                [checked]="selectedPriceRange === '0-2000'" (change)="onPriceRangeChange('0-2000')">
+                            <span>До 2000 р</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="priceRange" value="2000-3000"
+                                [checked]="selectedPriceRange === '2000-3000'"
+                                (change)="onPriceRangeChange('2000-3000')">
+                            <span>2000 - 3000 р</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="priceRange" value="3000-5000"
+                                [checked]="selectedPriceRange === '3000-5000'"
+                                (change)="onPriceRangeChange('3000-5000')">
+                            <span>3000 - 5000 р</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="priceRange" value="5000-10000"
+                                [checked]="selectedPriceRange === '5000-10000'"
+                                (change)="onPriceRangeChange('5000-10000')">
+                            <span>5000 - 10 000 р</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="radio" name="priceRange" value="10000-999999"
+                                [checked]="selectedPriceRange === '10000-999999'"
+                                (change)="onPriceRangeChange('10000-999999')">
+                            <span>от 10 000 р</span>
+                        </label>
+                    </div>
+                </details>
+
+                <!-- Фильтр по цветам -->
+                <details class="filter-group">
+                    <summary class="filter-header">
+                        <span>Цветы</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.flowers.includes('roses')"
+                                (change)="onFlowerChange('roses', $event)">
+                            <span>Розы</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.flowers.includes('chrysanthemums')"
+                                (change)="onFlowerChange('chrysanthemums', $event)">
+                            <span>Хризантемы</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.flowers.includes('peonies')"
+                                (change)="onFlowerChange('peonies', $event)">
+                            <span>Пионы</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.flowers.includes('daisies')"
+                                (change)="onFlowerChange('daisies', $event)">
+                            <span>Ромашки</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.flowers.includes('hydrangeas')"
+                                (change)="onFlowerChange('hydrangeas', $event)">
+                            <span>Гортензии</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.flowers.includes('lilies')"
+                                (change)="onFlowerChange('lilies', $event)">
+                            <span>Лилии</span>
+                        </label>
+                    </div>
+                </details>
+
+                <!-- Фильтр по композиции -->
+                <details class="filter-group">
+                    <summary class="filter-header">
+                        <span>Композиция</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.composition.includes('bouquet')"
+                                (change)="onCompositionChange('bouquet', $event)">
+                            <span>Цветы в коробке</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.composition.includes('box')"
+                                (change)="onCompositionChange('box', $event)">
+                            <span>Букет</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.composition.includes('basket')"
+                                (change)="onCompositionChange('basket', $event)">
+                            <span>Цветы в корзине</span>
+                        </label>
+                    </div>
+                </details>
+
+                <!-- Фильтр по поводу -->
+                <details class="filter-group">
+                    <summary class="filter-header">
+                        <span>Повод</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.occasion.includes('birthday')"
+                                (change)="onOccasionChange('birthday', $event)">
+                            <span>День Рождения</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.occasion.includes('love')"
+                                (change)="onOccasionChange('love', $event)">
+                            <span>Люблю</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.occasion.includes('wow')"
+                                (change)="onOccasionChange('wow', $event)">
+                            <span>WOW Эффект</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.occasion.includes('march8')"
+                                (change)="onOccasionChange('march8', $event)">
+                            <span>Букеты на 8 Марта</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" [checked]="filters.occasion.includes('home')"
+                                (change)="onOccasionChange('home', $event)">
+                            <span>Цветы для дома</span>
+                        </label>
+                    </div>
+                </details>
+            </div>
+
+            <button type="button" class="reset-filters" (click)="resetAllFilters()">Сбросить фильтры</button>
+        </aside>
+
+        <!-- Правая колонка - товары -->
+        <section class="products-column">
+            <!-- Поиск -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Поиск букетов..." [(ngModel)]="searchQuery"
+                    (input)="onSearchInput()" (blur)="hideSuggestionsWithDelay()"
+                    (focus)="searchSuggestions.length > 0 && (showSuggestions = true)">
+
+                <!-- Выпадающий список подсказок -->
+                <div class="search-suggestions" *ngIf="showSuggestions && searchSuggestions.length > 0">
+                    <div class="suggestion-item" *ngFor="let product of searchSuggestions"
+                        (click)="selectSuggestion(product)">
+                        <img [src]="product.imageUrl" [alt]="product.name" class="suggestion-image"
+                            *ngIf="product.imageUrl">
+                        <div class="suggestion-info">
+                            <span class="suggestion-name">{{ product.name }}</span>
+                            <span class="suggestion-price">{{ product.price }} р</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-controls">
+                <!-- Ползунок цены -->
+                <div class="price-slider-container">
+                    <div class="price-range">
+                        <span>{{ currentMinPrice }} р</span>
+                        <span>{{ currentMaxPrice }} р</span>
+                    </div>
+                    <div class="slider">
+                        <div class="slider-track"
+                            [style.left.%]="((currentMinPrice - minPrice) / (maxPrice - minPrice)) * 100"
+                            [style.right.%]="100 - ((currentMaxPrice - minPrice) / (maxPrice - minPrice)) * 100"></div>
+                        <input type="range" [min]="minPrice" [max]="maxPrice" [value]="currentMinPrice"
+                            class="slider-min" (input)="updateMinPrice($event)">
+                        <input type="range" [min]="minPrice" [max]="maxPrice" [value]="currentMaxPrice"
+                            class="slider-max" (input)="updateMaxPrice($event)">
+                    </div>
+                </div>
+
+                <!-- Сортировка -->
+                <div class="sort-container">
+                    <span class="sort-label">Сортировать:</span>
+                    <div class="sort-select">
+                        <select id="sort-select" [(ngModel)]="sortOption" (change)="applyFilters()">
+                            <option value="default">По умолчанию</option>
+                            <option value="price-asc">По возрастанию цены</option>
+                            <option value="price-desc">По убыванию цены</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Индикатор загрузки -->
+            <div class="loading-indicator" *ngIf="initialLoading">
+                <i class="fas fa-spinner fa-spin"></i> Загрузка товаров...
+            </div>
+
+            <!-- Сетка товаров -->
+            <div class="products-grid" *ngIf="!initialLoading">
+                <div class="product-card" *ngFor="let product of products">
+                    <div class="product-image">
+                        <img [src]="product.imageUrl" [alt]="product.name">
+                        <button class="favorite-btn" [class.active]="isFavorite(product.id)"
+                            (click)="toggleFavorite(product)">
+                            <i class="fas fa-heart" *ngIf="isFavorite(product.id)"></i>
+                            <i class="far fa-heart" *ngIf="!isFavorite(product.id)"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <a [routerLink]="['/product', product.id]" class="product-title">{{ product.name }}</a>
+                        <div class="product-footer">
+                            <span class="product-price">{{ product.price }} р</span>
+                            <div class="product-actions">
+                                <button class="action-btn view-details" (click)="quickView(product)"
+                                    title="Быстрый просмотр">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="action-btn add-to-cart" (click)="addToCart(product)"
+                                    title="Добавить в корзину">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Маркер для бесконечной ленты -->
+            <div id="scroll-marker" class="scroll-marker" *ngIf="hasNextPage && !initialLoading">
+                <div class="marker-loader" *ngIf="isLoading">
+                    <i class="fas fa-spinner fa-spin"></i> Загрузка...
+                </div>
+            </div>
+
+            <!-- Сообщение, если товаров нет -->
+            <div class="no-products" *ngIf="!initialLoading && products.length === 0">
+                <i class="fas fa-search"></i>
+                <p>Товары не найдены</p>
+                <button class="reset-filters-btn" (click)="resetAllFilters()">Сбросить фильтры</button>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Модальное окно быстрого просмотра -->
+<div class="quick-view-overlay" *ngIf="showQuickView" (click)="onQuickViewClick($event)">
+    <div class="quick-view-modal">
+        <button class="close-btn" (click)="closeQuickView()">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="quick-view-content" *ngIf="selectedProduct">
+            <div class="quick-view-image">
+                <img [src]="selectedProduct.imageUrl" [alt]="selectedProduct.name">
+            </div>
+
+            <div class="quick-view-info">
+                <h2 class="quick-view-title">{{ selectedProduct.name }}</h2>
+
+                <div class="quick-view-price">
+                    {{ selectedProduct.price }} р
+                </div>
+
+                <div class="quick-view-composition">
+                    <h3>Состав букета:</h3>
+                    <ul>
+                        <li *ngFor="let item of getCompositionList(selectedProduct.composition)">
+                            {{ item }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="quick-view-categories">
+                    <h3>Категории:</h3>
+                    <div class="category-tags">
+                        <!-- Цветы -->
+                        <span class="category-tag" *ngFor="let flower of selectedProduct.flowers">
+                            {{ translateCategory(flower) }}
+                        </span>
+                        <!-- Тип композиции -->
+                        <span class="category-tag" *ngIf="selectedProduct.compositionType">
+                            {{ translateCategory(selectedProduct.compositionType) }}
+                        </span>
+                        <!-- Поводы -->
+                        <span class="category-tag" *ngFor="let occ of selectedProduct.occasion">
+                            {{ translateCategory(occ) }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="quick-view-actions">
+                    <button class="add-to-cart-btn" (click)="addToCart(selectedProduct)">
+                        <i class="fas fa-shopping-cart"></i>
+                        Добавить в корзину
+                    </button>
+                    <button class="favorite-action-btn" [class.active]="isFavorite(selectedProduct.id)"
+                        (click)="toggleFavorite(selectedProduct)">
+                        <i class="fas fa-heart" *ngIf="isFavorite(selectedProduct.id)"></i>
+                        <i class="far fa-heart" *ngIf="!isFavorite(selectedProduct.id)"></i>
+                        {{ isFavorite(selectedProduct.id) ? 'В избранном' : 'В избранное' }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

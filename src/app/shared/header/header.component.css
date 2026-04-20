@@ -1,0 +1,238 @@
+/* Стили для header из General.css */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 0 20px;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.nav-logo img {
+    height: 80px;
+    width: 80px;
+    min-width: 40px;
+    border-radius: 8px;
+}
+
+.nav-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 17px;
+}
+
+.nav-link:hover {
+    color: #c71585;
+}
+
+/* Стили для выпадающего меню */
+.nav-item {
+    position: relative;
+}
+
+.dropdown-toggle {
+    position: relative;
+    padding-right: 20px !important;
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu.catalog-accordion {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 280px;
+    max-height: 70vh;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 8px 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    padding: 15px 0;
+    overflow-y: auto;
+}
+
+.nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Стили для аккордеона */
+.accordion-item {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.accordion-header:hover {
+    background: #f8f8f8;
+    color: #c71585;
+}
+
+.accordion-arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #fafafa;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 300px;
+}
+
+.accordion-content .dropdown-link {
+    padding-left: 40px;
+    font-weight: 400;
+    border-left: none;
+    position: relative;
+    display: block;
+    padding: 8px 20px 8px 40px;
+    text-decoration: none;
+    color: #666;
+}
+
+.accordion-content .dropdown-link::before {
+    content: "•";
+    position: absolute;
+    left: 25px;
+    color: #c71585;
+}
+
+.accordion-content .dropdown-link:hover {
+    background: #f0f0f0;
+    color: #c71585;
+}
+
+.view-all {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 12px 20px !important;
+    background: linear-gradient(135deg, #c71585, #e91e63);
+    color: white !important;
+    font-weight: 600 !important;
+    border-radius: 6px;
+    margin: 15px 20px 0 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.view-all:hover {
+    background: linear-gradient(135deg, #b01375, #d81b60) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(199, 21, 133, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .nav-menu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .dropdown-menu.catalog-accordion {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: calc(100vh - 100px) !important;
+        border-radius: 0;
+        transform: translateY(-100%);
+        z-index: 1002;
+    }
+    
+    .nav-item.active .dropdown-menu {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .nav-link p {
+        display: none;
+    }
+}

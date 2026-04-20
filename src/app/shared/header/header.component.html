@@ -1,0 +1,87 @@
+<header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a routerLink="/" class="nav-logo">
+                <img src="assets/i_web.jpg" alt="Flower Paradize">
+            </a>
+
+            <div class="nav-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>г.Самара</p>
+            </div>
+
+            <div class="nav-menu">
+                <div class="nav-item dropdown">
+                    <a routerLink="/catalog" class="nav-link dropdown-toggle">
+                        <i class="fas fa-th-list"></i>
+                        Каталог
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="dropdown-menu catalog-accordion">
+                        <!-- Цветы -->
+                        <div class="accordion-item">
+                            <div class="accordion-header" (click)="toggleAccordion($event)">
+                                <span>Цветы</span>
+                                <i class="fas fa-chevron-down accordion-arrow"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <a routerLink="/catalog" [queryParams]="{category: 'roses'}" class="dropdown-link">Розы</a>
+                                <a routerLink="/catalog" [queryParams]="{category: 'chrysanthemums'}" class="dropdown-link">Хризантемы</a>
+                                <a routerLink="/catalog" [queryParams]="{category: 'peonies'}" class="dropdown-link">Пионы</a>
+                                <a routerLink="/catalog" [queryParams]="{category: 'daisies'}" class="dropdown-link">Ромашки</a>
+                                <a routerLink="/catalog" [queryParams]="{category: 'hydrangeas'}" class="dropdown-link">Гортензии</a>
+                                <a routerLink="/catalog" [queryParams]="{category: 'lilies'}" class="dropdown-link">Лилии</a>
+                            </div>
+                        </div>
+
+                        <!-- Композиции -->
+                        <div class="accordion-item">
+                            <div class="accordion-header" (click)="toggleAccordion($event)">
+                                <span>Композиции</span>
+                                <i class="fas fa-chevron-down accordion-arrow"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <a routerLink="/catalog" [queryParams]="{type: 'box'}" class="dropdown-link">Цветы в коробке</a>
+                                <a routerLink="/catalog" [queryParams]="{type: 'basket'}" class="dropdown-link">Цветы в корзине</a>
+                                <a routerLink="/catalog" [queryParams]="{type: 'bouquet'}" class="dropdown-link">Букетоны</a>
+                            </div>
+                        </div>
+
+                        <!-- Повод -->
+                        <div class="accordion-item">
+                            <div class="accordion-header" (click)="toggleAccordion($event)">
+                                <span>Повод</span>
+                                <i class="fas fa-chevron-down accordion-arrow"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <a routerLink="/catalog" [queryParams]="{composition: 'dr'}" class="dropdown-link">День Рождения</a>
+                                <a routerLink="/catalog" [queryParams]="{composition: 'love'}" class="dropdown-link">Люблю</a>
+                                <a routerLink="/catalog" [queryParams]="{composition: 'wow_effect'}" class="dropdown-link">WOW Эффект</a>
+                                <a routerLink="/catalog" [queryParams]="{composition: '8march'}" class="dropdown-link">Букеты на 8 Марта</a>
+                                <a routerLink="/catalog" [queryParams]="{composition: 'flower_for_home'}" class="dropdown-link">Цветы для дома</a>
+                            </div>
+                        </div>
+
+                        <a routerLink="/catalog" class="dropdown-link view-all">Все товары →</a>
+                    </div>
+                </div>
+
+                <a routerLink="/delivery" class="nav-link">Доставка</a>
+                <a routerLink="/about-us" class="nav-link">О нас</a>
+                <a routerLink="/add-product" class="nav-link">Добавить товар</a>
+            </div>
+
+            <div class="nav-user">
+                <a routerLink="/account" class="nav-link">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a routerLink="/favorite" class="nav-link">
+                    <i class="fas fa-heart"></i>
+                </a>
+                <a routerLink="/basket" class="nav-link">
+                    <i class="fas fa-shopping-basket"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>

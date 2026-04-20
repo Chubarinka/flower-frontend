@@ -1,0 +1,46 @@
+<main class="favorite-main">
+  <div class="favorite-container">
+    <h1 class="favorite-title">Избранные товары</h1>
+    
+    <!-- Если избранное пусто -->
+    <div class="empty-favorite" *ngIf="favorites.length === 0">
+      <div class="empty-icon">
+        <i class="far fa-heart"></i>
+      </div>
+      <p class="empty-message">Вы пока не добавили товары в избранное :(</p>
+      <p class="empty-link">
+        Перейдите в <a routerLink="/catalog" class="catalog-link">каталог</a>, 
+        чтобы добавить товары
+      </p>
+    </div>
+
+    <!-- Сетка избранных товаров -->
+    <div class="favorites-grid" *ngIf="favorites.length > 0">
+      <div class="product-card" *ngFor="let product of favorites">
+        <div class="product-image">
+          <img [src]="product.imageUrl" [alt]="product.name">
+          <button class="favorite-btn active" (click)="removeFromFavorites(product.id)">
+            <i class="fas fa-heart"></i>
+          </button>
+        </div>
+        <div class="product-info">
+          <a [routerLink]="['/product', product.id]" class="product-title">{{ product.name }}</a>
+          <div class="product-footer">
+            <span class="product-price">{{ product.price }} р</span>
+            <button class="add-to-cart" (click)="addToCart(product)" title="Добавить в корзину">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Кнопка очистить избранное -->
+    <div class="favorites-actions" *ngIf="favorites.length > 0">
+      <button class="clear-favorites-btn" (click)="clearFavorites()">
+        <i class="fas fa-trash"></i>
+        Очистить избранное
+      </button>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,47 @@
+<footer class="footer">
+    <div class="footer-divider"></div>
+
+    <div class="footer-container">
+        <div class="footer-column">
+            <a routerLink="/" class="footer-logo">
+                <img src="assets/i_web.jpg" alt="Flower Paradize" class="logo-icon">
+            </a>
+        </div>
+
+        <div class="footer-column">
+            <div class="footer-title">Покупателю</div>
+            <div class="footer-links">
+                <a routerLink="/care" class="footer-link">Советы по уходу за растениями</a>
+                <a routerLink="/delivery" [queryParams]="{section: 'how-to-order'}" class="footer-link">Как сделать заказ</a>
+                <a routerLink="/about-us" class="footer-link">О нас</a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <div class="footer-title">Связаться с нами</div>
+            <div class="social-links">
+                <a href="https://vk.com/id747074444" class="social-link" target="_blank">
+                    <i class="fab fa-vk"></i>
+                    <p>ВКонтакте</p>
+                </a>
+                <a href="https://t.me/pubarin" class="social-link" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    <p>Telegram</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <div class="footer-title">Способы оплаты</div>
+            <div class="payment-methods">
+                <div class="payment-icons">
+                    <img src="assets/mir-logo.png" alt="Мир" class="payment-icon">
+                    <img src="assets/visa-logo.png" alt="Visa" class="payment-icon">
+                    <img src="assets/mastercard-logo.png" alt="MasterCard" class="payment-icon">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="f_p">&copy;2025 Flower Paradise. Все права защищены.</p>
+</footer>
