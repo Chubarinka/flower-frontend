@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Product } from './product.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoriteService {
-  private apiUrl = 'http://localhost:5001/api/favorites';
+  private apiUrl = `${environment.apiUrl}/api/favorites`;  // ← ИСПРАВЛЕНО
   private favoritesSubject = new BehaviorSubject<Product[]>([]);
   
   favorites$: Observable<Product[]> = this.favoritesSubject.asObservable();
