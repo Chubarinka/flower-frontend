@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { map } from 'rxjs/operators';
 
 export interface Product {
   id: number;
@@ -41,7 +41,8 @@ export interface ProductsResponse {
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = `${environment.apiUrl}/api/products`;  // ← ИСПРАВЛЕНО
+  private apiUrl = 'https://flower-api-q62v.onrender.com/api/products';
+  private apiBaseUrl = 'https://flower-api-q62v.onrender.com';
 
   constructor(private http: HttpClient) { }
 
@@ -62,18 +63,42 @@ export class ProductService {
       if (filters.occasion) params = params.set('occasion', filters.occasion);
     }
 
-    return this.http.get<ProductsResponse>(this.apiUrl, { params });
+    return this.http.get<ProductsResponse>(this.apiUrl, { params })
+      .pipe(
+        map(response => {
+          // Преобразуем URL фотографий
+          response.products = response.products.map(product => ({
+            ...product,
+            imageUrl: this.fixImageUrl(product.imageUrl)
+          }));
+          return response;
+        })
+      );
   }
 
   // Поиск товаров для подсказок
   searchProducts(query: string): Observable<Product[]> {
     let params = new HttpParams().set('search', query).set('pageSize', '5');
-    return this.http.get<Product[]>(`${this.apiUrl}/search`, { params });
+    return this.http.get<Product[]>(`${this.apiUrl}/search`, { params })
+      .pipe(
+        map(products => {
+          return products.map(product => ({
+            ...product,
+            imageUrl: this.fixImageUrl(product.imageUrl)
+          }));
+        })
+      );
   }
 
   // Получение одного товара
   getProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+    return this.http.get<Product>(`${this.apiUrl}/${id}`)
+      .pipe(
+        map(product => ({
+          ...product,
+          imageUrl: this.fixImageUrl(product.imageUrl)
+        }))
+      );
   }
 
   // Добавление товара
@@ -84,5 +109,23 @@ export class ProductService {
   // Проверка уникальности артикула
   checkSku(sku: string): Observable<{ exists: boolean }> {
     return this.http.get<{ exists: boolean }>(`${this.apiUrl}/sku/${sku}`);
+  }
+
+  // Вспомогательный метод для исправления URL фотографий
+  private fixImageUrl(url?: string): string | undefined {
+    if (!url) return undefined;
+    
+    // Если URL уже полный (начинается с http), возвращаем как есть
+    if (url.startsWith('http')) {
+      return url;
+    }
+    
+    // Если URL начинается с /uploads, добавляем базовый URL API
+    if (url.startsWith('/uploads')) {
+      return `${this.apiBaseUrl}${url}`;
+    }
+    
+    // В остальных случаях просто возвращаем оригинал
+    return url;
   }
 }
