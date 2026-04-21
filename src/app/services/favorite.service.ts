@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, map } from 'rxjs/operators';
 import { Product } from './product.service';
 import { environment } from '../../environments/environment';
 
@@ -9,7 +9,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class FavoriteService {
-  private apiUrl = `${environment.apiUrl}/api/favorites`;  // ← ИСПРАВЛЕНО
+  private apiUrl = `${environment.apiUrl}/api/favorites`;
+  private apiBaseUrl = 'https://flower-api-q62v.onrender.com';
   private favoritesSubject = new BehaviorSubject<Product[]>([]);
   
   favorites$: Observable<Product[]> = this.favoritesSubject.asObservable();
@@ -23,9 +24,17 @@ export class FavoriteService {
   }
 
   loadFavorites(): void {
-    this.http.get<Product[]>(this.apiUrl).subscribe({
+    this.http.get<Product[]>(this.apiUrl).pipe(
+      map(favorites => {
+        // Преобразуем URL фотографий для каждого товара в избранном
+        return (favorites || []).map(product => ({
+          ...product,
+          imageUrl: this.fixImageUrl(product.imageUrl)
+        }));
+      })
+    ).subscribe({
       next: (favorites) => {
-        this.favoritesSubject.next(favorites || []);
+        this.favoritesSubject.next(favorites);
       },
       error: (error) => {
         console.error('Error loading favorites:', error);
@@ -75,5 +84,23 @@ export class FavoriteService {
         error: (err) => observer.error(err)
       });
     });
+  }
+
+  // Вспомогательный метод для исправления URL фотографий
+  private fixImageUrl(url?: string): string | undefined {
+    if (!url) return undefined;
+    
+    // Если URL уже полный (начинается с http), возвращаем как есть
+    if (url.startsWith('http')) {
+      return url;
+    }
+    
+    // Если URL начинается с /uploads, добавляем базовый URL API
+    if (url.startsWith('/uploads')) {
+      return `${this.apiBaseUrl}${url}`;
+    }
+    
+    // В остальных случаях просто возвращаем оригинал
+    return url;
   }
 }
